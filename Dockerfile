@@ -63,3 +63,6 @@ ENV VERSION_CODE=$version_code
 
 # Start the application.
 CMD ["bin/start"]
+
+COPY chain.crt /etc/ssl/certs/
+RUN update-ca-certificates
