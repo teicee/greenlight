@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_30_144841) do
+ActiveRecord::Schema.define(version: 2020_05_27_154727) do
 
   create_table "features", force: :cascade do |t|
     t.integer "setting_id"
@@ -29,6 +29,9 @@ ActiveRecord::Schema.define(version: 2020_01_30_144841) do
     t.string "invite_token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "tic_smscode"
+    t.string "tic_phone"
+    t.string "tic_num_adh"
     t.index ["invite_token"], name: "index_invitations_on_invite_token"
     t.index ["provider"], name: "index_invitations_on_provider"
   end

@@ -83,6 +83,22 @@ module Emailer
     end
   end
 
+  # Sends sms code for invitation.
+  def send_invitation_sms(name, phone, smscode)
+    begin
+      return unless Rails.configuration.enable_email_verification
+
+      mail_domain = Rails.configuration.sms_email_domain
+      phone_mail = phone+"@"+mail_domain
+      UserMailer.invite_sms(name, phone_mail, smscode, @settings).deliver_now
+    rescue => e
+      logger.error "Support: Error in sms delivery: #{e}"
+      flash[:alert] = I18n.t(params[:message], default: I18n.t("sms_delivery_error"))
+    else
+      flash[:success] = I18n.t("administrator.flash.invite", email: phone_mail)
+    end
+  end
+
   def send_user_approved_email(user)
     begin
       return unless Rails.configuration.enable_email_verification

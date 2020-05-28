@@ -175,6 +175,7 @@ fr:
   default_admin: "Vous utilisez toujours le mot de passe par défaut pour ce compte. Veuillez cliquer <a href=\"%{edit_link}\">ici</a> pour le modifier"
   delete: Supprimer
   delivery_error: Une erreur s'est produite lors de la livraison du courrier électronique. Veuillez contacter un administrateur !
+  sms_delivery_error: Une erreur s'est produite lors de la livraison du SMS. Veuillez contacter un administrateur !
   docs: Documentation
   email: Email
   email_sent: "Votre demande de %{email_type} a bien été envoyé! (Vérifiez votre dossier anti-spam si vous ne le trouver pas)"
@@ -298,6 +299,7 @@ fr:
           subject: Inscription d'un nouvel utilisateur Greenlight
           username: "L'utilisateur s'est inscrit avec le nom %{name} et l'adresse email %{email}."
         subject: Invitation à joindre BigBlueButton
+        sms_subject: Utilisez %{code} pour vous inscrire à BigBlueButton FNMJI.
         username: "Votre nom d'utilisateur est %{email}."
       password_reset:
         title: 'Réinitialiser le mot de passe'
@@ -352,7 +354,9 @@ fr:
       warning: Vous <b>ne pourrez pas</b> récupérer ce salon
       recording_warning: "ou aucun de ses %{recordings_num} enregistrements associés"
     invite_user:
-      email_placeholder: Saisissez les e-mails des utilisateurs (séparés par des virgules)
+      email_placeholder: E-mails des utilisateurs (séparés par des virgules)
+      tic_phone_placeholder: Numéros de téléphone des utilisateurs (séparés par des virgules)
+      tic_num_adh_placeholder: Numéros d'adhérent des utilisateurs (séparés par des virgules)
       footer: L'utilisateur recevra un e-mail avec des instructions sur la façon de s'inscrire
       send: Envoyer invitation
       title: Inviter utilisateur

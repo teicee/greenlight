@@ -121,11 +121,19 @@ class AdminsController < ApplicationController
   # POST /admins/invite
   def invite
     emails = params[:invite_user][:email].split(",")
+    tic_phones = params[:invite_user][:tic_phone].split(",")
+    tic_num_adh = params[:invite_user][:tic_num_adh].split(",")
 
+    n = 0
     emails.each do |email|
-      invitation = create_or_update_invite(email)
+      phone = tic_phones[n]
+      num_adh = tic_num_adh[n]
+      smscode = rand(0000..9999).to_s.rjust(4, "0")
+      invitation = create_or_update_invite(email, phone, num_adh, smscode)
 
       send_invitation_email(current_user.name, email, invitation.invite_token)
+      send_invitation_sms(current_user.name, phone, smscode)
+      n += 1
     end
 
     redirect_to admins_path
@@ -325,8 +333,8 @@ class AdminsController < ApplicationController
   end
 
   # Creates the invite if it doesn't exist, or updates the updated_at time if it does
-  def create_or_update_invite(email)
-    invite = Invitation.find_by(email: email, provider: @user_domain)
+  def create_or_update_invite(email, phone, num_adh, smscode)
+    invite = Invitation.find_by(email: email, provider: @user_domain, tic_phone: phone, tic_num_adh: num_adh, tic_smscode: smscode)
 
     # Invite already exists
     if invite.present?
@@ -334,7 +342,7 @@ class AdminsController < ApplicationController
       invite.touch
     else
       # Creates invite
-      invite = Invitation.create(email: email, provider: @user_domain)
+      invite = Invitation.create(email: email, provider: @user_domain, tic_phone: phone, tic_num_adh: num_adh, tic_smscode: smscode)
     end
 
     invite

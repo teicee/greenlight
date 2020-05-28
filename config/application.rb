@@ -89,6 +89,9 @@ module Greenlight
     # Determine if GreenLight should enable email verification
     config.enable_email_verification = (ENV['ALLOW_MAIL_NOTIFICATIONS'] == "true")
 
+    # Sepecify the sms email domain
+    config.sms_email_domain = ENV['SMS_EMAIL_DOMAIN'] || "sms.teicee.fr"
+
     # Determine if GreenLight should allow non-omniauth signup/login.
     config.allow_user_signup = (ENV['ALLOW_GREENLIGHT_ACCOUNTS'] == "true")
 

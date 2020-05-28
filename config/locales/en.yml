@@ -1,3 +1,4 @@
+
 # BigBlueButton open source conferencing system - http://www.bigbluebutton.org/.
 #
 # Copyright (c) 2018 BigBlueButton Inc. and by respective authors (see below).
@@ -94,7 +95,7 @@ en:
       demoted: User has been successfully demoted
       invite: Invite successfully sent to %{email}
       invite_email_verification: Emails must be enabled in order to use this method. Please contact your system administrator.
-      merge_fail: There was an issue merging the user accounts. Please check the users selected and try again 
+      merge_fail: There was an issue merging the user accounts. Please check the users selected and try again
       merge_success: User accounts merged successfully
       perm_deleted: User has been permanently deleted
       promoted: User has been successfully promoted
@@ -124,7 +125,7 @@ en:
       edit_site_settings: Allow users with this role to edit site settings
       edit_roles: Allow users with this role to edit other roles
       manage_users: Allow users with this role to manage users
-      invalid_assignment: There was a problem assigning the roles to the user. Please check the values and try again 
+      invalid_assignment: There was a problem assigning the roles to the user. Please check the values and try again
       colour:
         title: Role Colour
         info: Set the colour that will be associated with the role
@@ -190,6 +191,7 @@ en:
   default_admin: You are still using the default password for this account. Please click <a href="%{edit_link}">here</a> to change it
   delete: Delete
   delivery_error: An error occured during email delivery. Please contact an administrator!
+  sms_delivery_error: An error occured during sms delivery. Please contact an administrator!
   docs: Documentation
   email: Email
   email_sent: Your %{email_type} email has been sent! (Please check your Spam folder if you haven't received it)
@@ -314,6 +316,7 @@ en:
           subject: New Greenlight User Sign Up
           username: The user signed up with the name %{name} and the email %{email}.
         subject: Invitation to join BigBlueButton
+        sms_subject: Use %{code} to join BigBlueButton
         username: Your username is %{email}.
       password_reset:
         title: 'Password reset'
@@ -369,6 +372,8 @@ en:
       recording_warning: or any of its %{recordings_num} associated recordings.
     invite_user:
       email_placeholder: Enter the users' emails (seperated by commas)
+      tic_phone_placeholder: Enter the users' phone numbers (separated by commas)
+      tic_num_adh_placeholder: Entre the users' membership numbers (separated by commas)
       footer: The user will receive an email with instructions on how to sign up
       send: Send Invite
       title: Invite User
@@ -457,7 +462,7 @@ en:
       fail: Your account has not been approved yet. If multiples days have passed since you signed up, please contact your administrator.
       signup: Your account was successfully created. It has been sent to an administrator for approval.
     banned:
-      fail: You do not have access to this application. If you believe this is a mistake, please contact your administrator. 
+      fail: You do not have access to this application. If you believe this is a mistake, please contact your administrator.
     deprecated:
       new_signin: Select a new login method for you account. All your rooms from your old account will be migrated to the new account
       twitter_signin: Signing in via Twitter has been deprecated and will be removed in the next release. Click <a href="%{link}"> here </a> to move your account to a new authentication method

@@ -30,6 +30,20 @@
               <%= f.text_field :email, class: "form-control", value: "", placeholder: t("modal.invite_user.email_placeholder"), autocomplete: :off %>
               <div class="invalid-feedback text-left"><%= t("modal.invite_user.not_blank") %></div>
             </div>
+            <div class="input-icon mb-2">
+              <span class="input-icon-addon">
+                <i class="fas fa-phone"></i>
+              </span>
+              <%= f.telephone_field :tic_phone, class: "form-control", value: "", placeholder: t("modal.invite_user.tic_phone_placeholder"), autocomplete: :off %>
+              <div class="invalid-feedback text-left"><%= t("modal.invite_user.not_blank") %></div>
+            </div>
+            <div class="input-icon mb-2">
+              <span class="input-icon-addon">
+                <i class="fas fa-user"></i>
+              </span>
+              <%= f.text_field :tic_num_adh, class: "form-control", value: "", placeholder: t("modal.invite_user.tic_num_adh_placeholder"), autocomplete: :off %>
+              <div class="invalid-feedback text-left"><%= t("modal.invite_user.not_blank") %></div>
+            </div>
           <div class="mt-4">
             <%= f.submit t("modal.invite_user.send"), class:"btn btn-primary btn-block" %>
           </div>

@@ -70,6 +70,14 @@ class UserMailer < ApplicationMailer
     mail to: email, subject: t('mailer.user.invite.subject')
   end
 
+  def invite_sms(name, phone_mail, code, settings)
+    @settings = settings
+    @name = name
+    @email = phone_mail
+    @code = code
+    mail to: phone_mail, subject: t('mailer.user.invite.sms_subject')
+  end
+
   def approve_user(user, url, settings)
     @settings = settings
     @user = user
