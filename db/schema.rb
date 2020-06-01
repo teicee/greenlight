@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2020_05_27_154727) do
     t.string "tic_smscode"
     t.string "tic_phone"
     t.string "tic_num_adh"
+    t.boolean "tic_is_phone_valid", default: false
     t.index ["invite_token"], name: "index_invitations_on_invite_token"
     t.index ["provider"], name: "index_invitations_on_provider"
   end

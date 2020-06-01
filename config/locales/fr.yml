@@ -543,6 +543,11 @@ fr:
     subtitle: Créer un Compte
     title: S’inscrire
     with: "S'inscrire via %{provider}"
+    fields:
+      smscode: Code SMS
+    confirm_sms_message: Veuillez renseigner le code SMS que vous avez reçu pour vous inscrire
+    confirm_sms_title: Vérifier
+    invalid_sms: Code SMS invalide
   terms:
     accept: "J'accepte les %{href}"
     accept_existing: J'accepte les termes et conditions

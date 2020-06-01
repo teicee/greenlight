@@ -20,4 +20,20 @@ class Invitation < ApplicationRecord
   has_secure_token :invite_token
 
   scope :valid, -> { where(updated_at: (Time.now - 48.hours)..Time.now) }
+
+  def tic_is_phone_valid
+    @tic_is_phone_valid
+  end
+
+  def tic_is_phone_valid=(value)
+    @tic_is_phone_valid = value
+  end
+
+  def user_smscode
+    @user_smscode
+  end
+
+  def smscode
+    @smscode
+  end
 end

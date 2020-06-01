@@ -52,6 +52,8 @@ class SessionsController < ApplicationController
     # Check if the user needs to be invited
     if invite_registration
       redirect_to root_path, flash: { alert: I18n.t("registration.invite.no_invite") } unless params[:invite_token]
+      #invite = Invitation.find_by(invite_token: params[:invite_token])
+      #redirect_to confirm_sms_path(invite_token: params[:invite_token]) unless invite.tic_is_phone_valid
 
       session[:invite_token] = params[:invite_token]
     end
@@ -59,6 +61,31 @@ class SessionsController < ApplicationController
     check_if_twitter_account(true)
 
     @user = User.new
+  end
+
+  # GET /confirm_sms
+  def confirm_sms
+    if invite_registration
+      redirect_to root_path, flash: { alert: I18n.t("registration.invite.no_invite") } unless params[:invite_token]
+      session[:invite_token] = params[:invite_token]
+      logger.info "session : #{session[:invite_token]}"
+      @invite = Invitation.find_by(invite_token: params[:invite_token])
+    end
+  end
+
+  #/confirm_signup
+  def confirm_signup
+    logger.info "session : #{session[:invite_token]}"
+    @invite = Invitation.find_by(invite_token: session[:invite_token])
+    user_smscode = params["invitations"][:user_smscode]
+    if user_smscode == invite.smscode
+      logger.info "CODE OK, code : #{params} | real : #{invite.smscode} | token : #{session[:invite_token]}"
+      invite.tic_is_phone_valid = true
+      redirect_to signup_path(invite_token: session[:invite_token])
+      return
+    end
+    logger.info "CODE NOK, code : #{user_smscode} | real : #{invite.smscode}"
+    redirect_to confirm_sms_path(invite_token: session[:invite_token]), notice: I18n.t("signup.invalid_sms")
   end
 
   # POST /users/login

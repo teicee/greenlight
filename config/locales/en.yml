@@ -560,6 +560,11 @@ en:
     subtitle: Create an Account
     title: Sign up
     with: Sign up with %{provider}
+    fields:
+      smscode: SMS Code
+    confirm_sms_message: Please enter the sms code that was sent to you
+    confirm_sms_title: Verify
+    invalid_sms: Wrong SMS code
   terms:
     accept: I accept the %{href}
     accept_existing: I accept the terms and conditions
